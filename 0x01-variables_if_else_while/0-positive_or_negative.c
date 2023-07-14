@@ -5,11 +5,11 @@
 /**
  * main - Determines if a number is positive, negative or zero.
  *
- * Return: Always 0 (Success)
+ * Return: Always (Success)
  */
 int main(void)
 {
-	int n:
+	int n;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
@@ -23,7 +23,7 @@ int main(void)
 	}
 	else 
 	{
-		printf("%d is negative\n, n);
+		printf("%d is negative\n", n);
 	}
 	return (0);
 }
