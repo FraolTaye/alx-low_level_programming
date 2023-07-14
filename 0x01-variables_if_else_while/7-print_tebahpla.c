@@ -1,4 +1,4 @@
-#include <stdio.c>
+#include <stdio.h>
 
 /**
  * main - Prints the lowercase alphabet in reverse, followed by new line.
