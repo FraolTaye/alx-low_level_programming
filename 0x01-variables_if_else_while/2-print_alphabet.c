@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Prints the alphabet.
- *
+ * main - Prints the alphabet
  * Return: Always (Success)
  */
 int main(void)
@@ -12,5 +11,5 @@ int main(void)
 	for (c = 'a'; c <= 'z'; c++)
 	putchar(c);
 	putchar('\n');
-	return (o);
+	return (0);
 }
