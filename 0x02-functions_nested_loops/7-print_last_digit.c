@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * prints_last_digit - prints the last digit of a number
+ * print_last_digit - prints the last digit of a number
  * @n: the int to extract the last digit from
  * Return: vlaue of the last digit
  */

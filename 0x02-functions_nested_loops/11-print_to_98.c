@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * prints_to_98 - prints all antural numbers from n to 98,
+ * print_to_98 - Prints all antural numbers from n to 98,
  * followed by a new line
  * @n: prints from this number
  */

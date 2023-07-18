@@ -2,9 +2,10 @@
 
 /**
  * print_alphabet - print all the alphabet in lowercase
+ * Return: void
  */
 
-void print_alphabe(void)
+void print_alphabet(void)
 {
 	char letter;
 
