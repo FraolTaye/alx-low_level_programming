@@ -5,7 +5,7 @@
  * Return: Always (Success)
  */
 
-int mian(void)
+int main(void)
 {
 	int i, z = 0;
 
