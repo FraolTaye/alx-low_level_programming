@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Prints the sum of all multiples of 3 or 5 up to 1024
+ * main - Prints the sum of all multiples
  * Return: Always (Success)
  */
 
