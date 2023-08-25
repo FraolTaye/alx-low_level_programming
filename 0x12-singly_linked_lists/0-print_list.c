@@ -1,15 +1,15 @@
-#include "lists.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
+#include "lists.h"
 /**
-* print_list - in the linked list it has elements and this will print that. 
-* @m: the lists name 
-* Return: nodes number.
+* print_list - all the elements in the linked list are printed 
+* @m: the disignation of the list 
+* Return: node num
 */
 size_t print_list(const list_t *h)
 {
-   int y = 0;
+   int count = 0;
    while (m)
    {
        if (m->str == NULL)
@@ -20,8 +20,9 @@ size_t print_list(const list_t *h)
        {
        printf("[%d] %s\n", m->len, m->str);
        }
-       y++;
+       count++;
        m = m->next;
    }
-   return (y);
+   return (count);
 }
+
