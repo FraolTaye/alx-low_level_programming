@@ -7,7 +7,7 @@
 * @m: the lists name 
 * Return: nodes number.
 */
-size_t print_list(const list_t *m)
+size_t print_list(const list_t *h)
 {
    int y = 0;
    while (m)
