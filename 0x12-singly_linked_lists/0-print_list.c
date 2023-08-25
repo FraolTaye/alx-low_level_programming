@@ -4,24 +4,24 @@
 #include "lists.h"
 /**
 * print_list - all the elements in the linked list are printed 
-* @m: the disignation of the list 
+* @h: the disignation of the list 
 * Return: node num
 */
 size_t print_list(const list_t *h)
 {
    int count = 0;
-   while (m)
+   while (h)
    {
-       if (m->str == NULL)
+       if (h->str == NULL)
        {
            printf("[0] (nil)\n");
        }
        else
        {
-       printf("[%d] %s\n", m->len, m->str);
+       printf("[%d] %s\n", h->len, h->str);
        }
        count++;
-       m = m->next;
+       h = h->next;
    }
    return (count);
 }
