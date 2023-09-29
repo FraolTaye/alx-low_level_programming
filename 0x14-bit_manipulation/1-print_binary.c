@@ -3,7 +3,7 @@
  * print_binary - supposed to print bin of dec num
  * @pn: printable num
  */
-void print_binary(unsigned long int n)
+void print_binary(unsigned long int pn)
 {
 	int p, numc = 0;
 	unsigned long int sut;
