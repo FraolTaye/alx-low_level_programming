@@ -20,7 +20,7 @@ void print_binary(unsigned long int pn)
 		else if (sut)
 			_putchar('0');
 	}
-	while (!numc)
+	if (!numc)
 		_putchar('0');
 }
 
