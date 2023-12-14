@@ -1,8 +1,9 @@
-#include "main.h" 
+#include "main.h"
 /**
-* print_binary - supposed to print bin of dec num * @pn: printable num   
+* print_binary - supposed to print bin of dec num
+* @pn: printable num
 */
-void print_binary(unsigned long int pn) 
+void print_binary(unsigned long int pn)
 {
 	int p, numc = 0; unsigned long int sut;
 
@@ -12,7 +13,7 @@ void print_binary(unsigned long int pn)
 		if (sut & 1)
 		{
 		_putchar('1');
-		numc++; 
+		numc++;
 		}
 	else if (sut) _putchar('0');
 	}
