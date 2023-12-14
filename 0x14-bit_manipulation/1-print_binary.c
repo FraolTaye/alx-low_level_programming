@@ -5,7 +5,8 @@
 */
 void print_binary(unsigned long int pn)
 {
-	int p, numc = 0; unsigned long int sut;
+	int p, numc = 0;
+	unsigned long int sut;
 
 	for (p = 63; p >= 0; p--)
 	{
@@ -15,7 +16,8 @@ void print_binary(unsigned long int pn)
 		_putchar('1');
 		numc++;
 		}
-	else if (sut) _putchar('0');
+	else if (sut)
+		_putchar('0');
 	}
 	if (!numc)
 	_putchar('0');

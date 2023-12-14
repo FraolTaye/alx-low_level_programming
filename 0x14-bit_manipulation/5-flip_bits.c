@@ -14,7 +14,8 @@ unsigned int flip_bits(unsigned long int fn, unsigned long int sn)
 	for (r = 63; r >= 0; r--)
 	{
 		dex = mul >> r;
-		if (dex & 1) snt++;
+		if (dex & 1)
+			snt++;
 	}
 	return (snt);
 }

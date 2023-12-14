@@ -1,4 +1,4 @@
-#include "main.h" 
+#include "main.h"
 /**
 * get_endianness - supposed to see if little or big
 * Return: if big 0 and 1 if little

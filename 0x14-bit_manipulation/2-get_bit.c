@@ -9,7 +9,8 @@ int get_bit(unsigned long int sn, unsigned int bidx)
 {
 	int bv;
 
-	if (bidx > 63) return (-1);
+	if (bidx > 63)
+		return (-1);
 	bv = (sn >> bidx) & 1;
 	return (bv);
 }
