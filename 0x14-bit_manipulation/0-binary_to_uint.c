@@ -1,21 +1,21 @@
 #include "main.h"
 /**
  * binary_to_uint -supposed to convert bit num to unsigned integer
- * @bi: the bin number
+ * @b: the bin number
  * Return: the num converted
  */
-unsigned int binary_to_uint(const char *bi)
+unsigned int binary_to_uint(const char *b)
 {
 	int k;
 	unsigned int dec_val = 0;
 
-	while (!bi)
+	while (!b)
 		return (0);
-	for (k = 0; bi[k]; k++)
+	for (k = 0; b[k]; k++)
 	{
-		if (bi[k] < '0' || bi[k] > '1')
+		if (b[k] < '0' || b[k] > '1')
 			return (0);
-		dec_val = 2 * dec_val + (bi[k] - '0');
+		dec_val = 2 * dec_val + (b[k] - '0');
 	}
 	return (dec_val);
 }
