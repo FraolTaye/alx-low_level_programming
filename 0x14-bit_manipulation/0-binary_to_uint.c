@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * binary_to_uint -supposed to convert bit num to unsigned integer
  * @b: the bin number
@@ -6,16 +7,23 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int k;
-	unsigned int dec_val = 0;
+	unsigned int result;
 
-	while (!b)
-		return (0);
-	for (k = 0; b[k]; k++)
+	result = 0;
+
+	if (b == NULL)
 	{
-		if (b[k] < '0' || b[k] > '1')
-			return (0);
-		dec_val = 2 * dec_val + (b[k] - '0');
+		return (0);
 	}
-	return (dec_val);
+
+	while (*b != '\0')
+	{
+		if (*b != '0' && *b != '1')
+		{
+			return (0);
+		}
+		result = result * 2 + (*b - '0');
+		b++;
+	}
+	return (result);
 }
