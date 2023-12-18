@@ -22,6 +22,6 @@ int create_file(const char *filename, char *text_content)
 	out = write(myf, text_content, coutl);
 	if (myf == -1 || out == -1)
 		return (-1);
-	close(myf);	
+	close(myf);
 	return (1);
 }
