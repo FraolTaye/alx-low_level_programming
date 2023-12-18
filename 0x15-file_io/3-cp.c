@@ -1,95 +1,72 @@
 #include "main.h"
 #include <stdio.h>
-#include <stdlib.h>
 
-char *create_buffer(char *myf);
-void close_file(int md);
 /**
- * create_buffer - suppossed to assign 1024 byte
- * @myf: strong char names
- * Return: the buffer that is new given
+ * error_file - supposed to see files can open.
+ * @file_from: the filwa that are checked
+ * @file_to: the files that are to
+ * @argv: the vector args
+ * Return: no return.
  */
-char *create_buffer(char *myf)
+void error_file(int file_from, int file_to, char *argv[])
 {
-	char *buf;
-
-	buf = malloc(sizeof(char) * 1024);
-
-	if (!buf)
+	if (file_from == -1)
 	{
-		dprintf(STDERR_FILENO
-				"Error: Can't write to %s\n", myf);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	if (file_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	return (buf);
 }
 
 /**
- * close_file - suppose to shut off the descriptors
- * @md: close decsripotor
- */
-void close_file(int md)
-{
-	int k;
-
-	k = close(md);
-
-	if (k == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", md);
-		exit(100);
-	}
-}
-
-/**
- * main - supposed to copy file to another.
- * @argc: argumenmt num
- * @argv: arrgument array pointre.
- * Return: if sucess 0
- * Description: exit code of 97 when count is wrong
- * exit code of 98 when file_from is inexist or caot be read
- * exit file of 99 when file is uncreatable or unwritable
- * exit file of 100 when file_to or file_from is unclosable
+ * main - supoosed to see if a student id from Holberton school.
+ * @argc: the arg numbers
+ * @argv: the vector arg
+ * Return: Always 0.
  */
 int main(int argc, char *argv[])
 {
-	int outof, whr, a, d;
-	char *buf;
+	int file_from, file_to, err_close;
+	ssize_t nchars, nwr;
+	char buf[1024];
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
 		exit(97);
 	}
 
-	buf = create_buffer(argv[2]);
-	outof = open(argv[1], O_RDONLY);
-	a = read(outof, buf, 1024);
-	whr = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	file_from = open(argv[1], O_RDONLY);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
+	error_file(file_from, file_to, argv);
 
- 	do
+	nchars = 1024;
+	while (nchars == 1024)
 	{
-		if (outof == -1 || a == -1)
- 		{
- 			dprintf(STDERR_FILENO,
-				"Error: Can't read from file %s\n", argv[1]);
-			free(buf);
-			exit(98);
-		}
-		d = write(whr, buf, a);
-		if (whr == -1 || d == -1)
-		{
-			dprintf(STDERR_FILENO,
-				"Error: Can't write to %s\n", argv[2]);
-			free(buf);
-			exit(99);
-		}
-		a = read(outof, buf, 1024);
-		whr = open(argv[2], O_WRONLY | O_APPEND);
+		nchars = read(file_from, buf, 1024);
+		if (nchars == -1)
+			error_file(-1, 0, argv);
+		nwr = write(file_to, buf, nchars);
+		if (nwr == -1)
+			error_file(0, -1, argv);
 	}
-	while (a > 0);
-	free(buf);
-	close_file(outof);
-	close_file(whr);
+
+	err_close = close(file_from);
+	if (err_close == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		exit(100);
+	}
+
+	err_close = close(file_to);
+	if (err_close == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		exit(100);
+	}
 	return (0);
 }
